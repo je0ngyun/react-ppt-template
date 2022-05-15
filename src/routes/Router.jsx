@@ -1,18 +1,30 @@
 import React from 'react'
 import { Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
-
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import Landing from '@pages/Landing'
 import Home from '@pages/Home'
 
 const Router = () => {
+  const location = useLocation()
+  const timeout = { enter: 800, exit: 800 }
   return (
     <>
       <Suspense fallback={<></>}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/1" element={<Home />} />
-        </Routes>
+        <TransitionGroup className="transition-group">
+          <CSSTransition
+            key={location.pathname}
+            classNames="pageSlider"
+            mountOnEnter={false}
+            unmountOnExit={false}
+            timeout={timeout}
+          >
+            <Routes location={location}>
+              <Route path="/" element={<Landing />} />
+              <Route path="/1" element={<Home />} />
+            </Routes>
+          </CSSTransition>
+        </TransitionGroup>
       </Suspense>
     </>
   )

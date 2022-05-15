@@ -28,6 +28,52 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
   }
+  .transition-group {
+  width  :100% ;
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* .pageSlider-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+  z-index: 1;
+}
+.pageSlider-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: all 800ms ease-in-out
+}
+.pageSlider-exit {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.pageSlider-exit-active {
+  opacity: 0;
+  transform: translate3d(200%, 0, 0);
+  transition: all 800ms ease-in-out
+} */
+
+.pageSlider-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+  z-index: 1;
+}
+.pageSlider-enter-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: all 800ms ease-in-out
+}
+.pageSlider-exit {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.pageSlider-exit-active {
+  opacity: 0;
+  transform: translate3d(-200%, 0, 0);
+  transition: all 800ms ease-in-out
+}
 `
 
 export default GlobalStyle
