@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import styled from 'styled-components'
+import useKeyPress from '@hooks/useKeyPress'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -10,6 +11,7 @@ const Wrapper = styled.div`
 `
 
 const Landing = () => {
+  const enter = useKeyPress('Enter')
   return (
     <Wrapper>
       <div>Landing</div>
