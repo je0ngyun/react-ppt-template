@@ -14,13 +14,11 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <QueryClientProvider client={queryClient}>
-          {/* <Header /> */}
           <Main>
             <BrowserRouter>
               <Router />
             </BrowserRouter>
           </Main>
-          {/* <Footer /> */}
         </QueryClientProvider>
       </ThemeProvider>
     </>

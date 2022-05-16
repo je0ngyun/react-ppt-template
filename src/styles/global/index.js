@@ -35,41 +35,41 @@ const GlobalStyle = createGlobalStyle`
   overflow-x: hidden;
 }
 
-/* .pageSlider-enter {
+.pageleft-enter {
   opacity: 0;
   transform: translate3d(-100%, 0, 0);
   z-index: 1;
 }
-.pageSlider-enter-active {
+.pageleft-enter-active {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   transition: all 800ms ease-in-out
 }
-.pageSlider-exit {
+.pageleft-exit {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
-.pageSlider-exit-active {
+.pageleft-exit-active {
   opacity: 0;
   transform: translate3d(200%, 0, 0);
   transition: all 800ms ease-in-out
-} */
+}
 
-.pageSlider-enter {
+.pageright-enter {
   opacity: 0;
   transform: translate3d(100%, 0, 0);
   z-index: 1;
 }
-.pageSlider-enter-active {
+.pageright-enter-active {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   transition: all 800ms ease-in-out
 }
-.pageSlider-exit {
+.pageright-exit {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
-.pageSlider-exit-active {
+.pageright-exit-active {
   opacity: 0;
   transform: translate3d(-200%, 0, 0);
   transition: all 800ms ease-in-out

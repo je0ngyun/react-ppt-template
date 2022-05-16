@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import styled from 'styled-components'
-import useKeyPress from '@hooks/useKeyPress'
+import useRegisterSlideKey from '@hooks/useRegisterSlideKey'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `
 
 const Landing = () => {
-  const enter = useKeyPress('Enter')
+  useRegisterSlideKey()
   return (
     <Wrapper>
       <div>Landing</div>
