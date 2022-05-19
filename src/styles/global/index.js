@@ -22,58 +22,56 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     background-color: ${({ theme }) => theme.colors.background_color};
     color: ${({ theme }) => theme.colors.text_color};
-    padding: 30px;
+    padding: 20px;
   }
   #root{
     width: 100%;
     height: 100%;
   }
   .transition-group {
-  width  :100% ;
-  height: 100%;
-  position: relative;
-  overflow-x: hidden;
-}
-
-.pageleft-enter {
-  opacity: 0;
-  transform: translate3d(-100%, 0, 0);
-  z-index: 1;
-}
-.pageleft-enter-active {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition: all 800ms ease-in-out
-}
-.pageleft-exit {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-.pageleft-exit-active {
-  opacity: 0;
-  transform: translate3d(200%, 0, 0);
-  transition: all 800ms ease-in-out
-}
-
-.pageright-enter {
-  opacity: 0;
-  transform: translate3d(100%, 0, 0);
-  z-index: 1;
-}
-.pageright-enter-active {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition: all 800ms ease-in-out
-}
-.pageright-exit {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-.pageright-exit-active {
-  opacity: 0;
-  transform: translate3d(-200%, 0, 0);
-  transition: all 800ms ease-in-out
-}
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .pageleft-enter {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+    z-index: 1;
+  }
+  .pageleft-enter-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 500ms linear, opacity 400ms linear
+  }
+  .pageleft-exit {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  .pageleft-exit-active {
+    opacity: 0;
+    transform: translate3d(200%, 0, 0);
+    transition: transform 930ms linear, opacity 400ms linear
+  }
+  .pageright-enter {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    z-index: 1;
+  }
+  .pageright-enter-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 500ms linear, opacity 400ms linear
+  }
+  .pageright-exit {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  .pageright-exit-active {
+    opacity: 0;
+    transform: translate3d(-200%, 0, 0);
+    transition: transform 930ms linear, opacity 400ms linear
+  }
 `
 
 export default GlobalStyle

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import useRegisterSlideKey from '@hooks/useRegisterSlideKey'
 
@@ -11,11 +11,12 @@ const Wrapper = styled.div`
 `
 
 const Landing = () => {
-  useRegisterSlideKey()
+  useRegisterSlideKey() //Register key events for slides on this page
+  const navi = useLocation()
   return (
     <Wrapper>
       <div>Landing</div>
-      <Link to="/1">이동</Link>
+      <div>current Path : {navi.pathname}</div>
     </Wrapper>
   )
 }

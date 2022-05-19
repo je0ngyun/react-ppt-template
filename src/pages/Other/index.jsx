@@ -9,15 +9,16 @@ const Wrapper = styled.div`
   border: 10px solid black;
   position: absolute;
 `
-const Home = () => {
+
+const Other = () => {
   useRegisterSlideKey() //Register key events for slides on this page
   const navi = useLocation()
   return (
     <Wrapper>
-      <div>Home</div>
+      <div>Other</div>
       <div>current Path : {navi.pathname}</div>
     </Wrapper>
   )
 }
 
-export default Home
+export default Other

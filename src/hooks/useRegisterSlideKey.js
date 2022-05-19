@@ -1,34 +1,40 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { directionState } from '@stores/direction'
-import { useSetRecoilState } from 'recoil'
+import { useSetRecoilState, useRecoilValue } from 'recoil'
+import { directionState, pageIndexState } from '@stores/direction'
+import { appRoutes } from '@routes/Router'
 
-const useKeyPress = (targetKey) => {
+const useRegisterSlideKey = () => {
   const navigation = useNavigate()
   const setDirection = useSetRecoilState(directionState)
+  const pageIndex = useRecoilValue(pageIndexState)
 
-  const downHandler = ({ key }) => {
+  const handleKeyDown = ({ key }) => {
     if (key === 'ArrowLeft' || key === 'Escape') {
       setDirection('left')
-      setTimeout(() => {
-        navigation('/1')
-      }, 0)
+      if (pageIndex > 0) {
+        setTimeout(() => {
+          navigation(appRoutes[pageIndex - 1].path)
+        }, 0)
+      }
     }
     if (key === 'ArrowRight' || key === 'Enter') {
       setDirection('right')
-      setTimeout(() => {
-        navigation('/1')
-      }, 0)
+      if (pageIndex !== -1 && pageIndex < appRoutes.length - 1) {
+        setTimeout(() => {
+          navigation(appRoutes[pageIndex + 1].path)
+        }, 0)
+      }
     }
   }
 
   useEffect(() => {
-    window.addEventListener('keydown', downHandler)
+    window.addEventListener('keydown', handleKeyDown)
     return () => {
-      window.removeEventListener('keydown', downHandler)
+      window.removeEventListener('keydown', handleKeyDown)
     }
   }, [])
   return null
 }
 
-export default useKeyPress
+export default useRegisterSlideKey
