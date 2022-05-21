@@ -1,13 +1,18 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useSetRecoilState, useRecoilValue } from 'recoil'
-import { directionState, pageIndexState } from '@stores/direction'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useSetRecoilState } from 'recoil'
+import { directionState } from '@stores/direction'
 import { appRoutes } from '@routes/Router'
 
+const getCurrentPageIdx = (path) => {
+  return appRoutes.findIndex((routeObj) => routeObj.path === path)
+}
+
 const useRegisterSlideKey = () => {
+  const location = useLocation()
   const navigation = useNavigate()
   const setDirection = useSetRecoilState(directionState)
-  const pageIndex = useRecoilValue(pageIndexState)
+  const pageIndex = getCurrentPageIdx(location.pathname)
 
   const handleKeyDown = ({ key }) => {
     if (key === 'ArrowLeft' || key === 'Escape') {
