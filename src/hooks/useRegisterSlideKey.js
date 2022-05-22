@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSetRecoilState } from 'recoil'
 import { directionState } from '@stores/direction'
 import { appRoutes } from '@routes/Router'
@@ -9,25 +9,25 @@ const getCurrentPageIdx = (path) => {
 }
 
 const useRegisterSlideKey = () => {
-  const location = useLocation()
   const navigation = useNavigate()
   const setDirection = useSetRecoilState(directionState)
-  const pageIndex = getCurrentPageIdx(location.pathname)
 
   const handleKeyDown = ({ key }) => {
     if (key === 'ArrowLeft' || key === 'Escape') {
+      const pidx = getCurrentPageIdx(window.location.pathname)
       setDirection('left')
-      if (pageIndex > 0) {
+      if (pidx > 0) {
         setTimeout(() => {
-          navigation(appRoutes[pageIndex - 1].path)
+          navigation(appRoutes[pidx - 1].path)
         }, 0)
       }
     }
     if (key === 'ArrowRight' || key === 'Enter') {
+      const pidx = getCurrentPageIdx(window.location.pathname)
       setDirection('right')
-      if (pageIndex !== -1 && pageIndex < appRoutes.length - 1) {
+      if (pidx < appRoutes.length - 1) {
         setTimeout(() => {
-          navigation(appRoutes[pageIndex + 1].path)
+          navigation(appRoutes[pidx + 1].path)
         }, 0)
       }
     }
